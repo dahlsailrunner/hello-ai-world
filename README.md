@@ -1,5 +1,14 @@
 # OpenAi.Sample
 
+## Prerequisites
+
+The following need to be installed on your machine
+in order to work with this solution.
+
+* [.NET 9 SDK](https://dotnet.microsoft.com/en-us/download/dotnet/9.0)
+* [Docker Desktop](https://www.docker.com/products/docker-desktop/), [Rancher Desktop](https://rancherdesktop.io/), or [Podman Desktop](https://podman-desktop.io/)
+* [NPM (via NodeJS)](https://nodejs.org/en)
+
 ## Running the Solution
 
 Getting your own instance of Azure OpenAI and
