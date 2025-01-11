@@ -1,0 +1,33 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Aspire Launch",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "build",
+            "program": "${workspaceFolder}/OpenAi.Sample.AppHost/bin/Debug/net9.0/OpenAi.Sample.AppHost.dll",
+            "args": [],
+            "cwd": "${workspaceFolder}/OpenAi.Sample.AppHost",
+            "stopAtEntry": false,
+            "serverReadyAction": {
+                "action": "openExternally",
+                "uriFormat": "https://localhost:17271",
+                "pattern": "listening on:.*https://localhost:.*"
+            },
+            "env": {
+                "ASPNETCORE_ENVIRONMENT": "Development"
+            },
+            "sourceFileMap": {
+                "/Views": "${workspaceFolder}/Views"
+            }
+        },
+        {
+            "type": "msedge",
+            "request": "launch",
+            "name": "Debug Angular",
+            "url": "https://localhost:44333/home",
+            "webRoot": "${workspaceFolder}/ui-with-bff"
+        }
+    ]
+}
