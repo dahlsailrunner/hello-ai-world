@@ -36,14 +36,16 @@ export class ChatComponent implements OnInit {
         );
         this.streamedMessages.set(updatedMessage as string);
       }
-      // Do stuff when the streaming is done (not needed in the case of this example)
-      // else if (event.type === HttpEventType.Response) { }
+      // else if (event.type === HttpEventType.Response) { 
+      //   Do stuff when the streaming is done
+      //   console.log('Streaming done');
+      //}
     });
   }
 
   convertToString(responseContent: string): string {
     // the response might or might not be a valid JSON array, 
-    // but it always starts with [, so we need to convert it to one
+    // but it always starts with [, so we need to conditionallyadd the ]
     if (responseContent.slice(-1) !== ']') {
       responseContent += ']';
     }
