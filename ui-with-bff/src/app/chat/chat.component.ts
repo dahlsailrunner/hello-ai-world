@@ -28,10 +28,11 @@ export class ChatComponent implements OnInit {
       if (event.type === HttpEventType.DownloadProgress) {
         // getting streamed content
         const partial = (event as HttpDownloadProgressEvent).partialText!;
-        const responseObject = this.convertToObjectArray(partial!).join('');
-        // The response in this example is a markdown string, so we need to convert it to HTML
+        const partialAsString = this.convertToString(partial!);
+        // The response in this example is a markdown string, 
+        // so we need to convert it to HTML
         const updatedMessage = this.sanitizer.bypassSecurityTrustHtml(
-          marked(responseObject) as string
+          marked(partialAsString) as string
         );
         this.streamedMessages.set(updatedMessage as string);
       }
@@ -40,10 +41,12 @@ export class ChatComponent implements OnInit {
     });
   }
 
-  convertToObjectArray(responseContent: string) {
+  convertToString(responseContent: string): string {
+    // the response might or might not be a valid JSON array, 
+    // but it always starts with [, so we need to convert it to one
     if (responseContent.slice(-1) !== ']') {
       responseContent += ']';
     }
-    return JSON.parse(responseContent);
+    return JSON.parse(responseContent).join('');
   }
 }
